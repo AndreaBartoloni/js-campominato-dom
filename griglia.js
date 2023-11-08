@@ -19,17 +19,6 @@ play.addEventListener("click", function(){
     grid.replaceChildren()
 
 
-    let numeriCasuali = [];
-
-    for (let i = 1; i <= 16; i++) {
-        let numeroCasuale = Math.floor(Math.random() * 100) + 1;
-        numeriCasuali.push(numeroCasuale);
-    }
-
-    console.log(numeriCasuali);
-
-
-    
     console.log(difficult);
     if(difficult == "medium"){
         numCella = 81;
@@ -45,6 +34,16 @@ play.addEventListener("click", function(){
         square = "square";
         console.log("stronzo");
     }
+
+    let numeriCasuali = [];
+
+    for (let i = 1; i <= 16; i++) {
+        let numeroCasuale = Math.floor(Math.random() * numeroCella) + 1;
+        numeriCasuali.push(numeroCasuale);
+    }
+
+    console.log(numeriCasuali);
+
     creaQuadrati(numCella, square);
 })
 
