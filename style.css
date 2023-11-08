@@ -1,0 +1,82 @@
+:root {
+    --num-cells-per-row: 10;
+    --num-cells-per-row81: 9;
+    --num-cells-per-row49: 7;
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: cyan;
+    color: rgb(0, 0, 0);
+    font-family: sans-serif;
+    height: 100vh;
+}
+.container{
+    
+    background-color: white;
+}
+header{
+    
+    width: 90%; 
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+header > div{
+    
+    display: flex;
+    align-items: center;
+}
+header img { 
+    height: 60px;
+}
+select{
+    margin: 0px 10px 0px 10px;
+    padding: 0px 90px 0px 10px;
+}
+button{
+    padding: 2px 20px 2px 20px;
+}
+#grid {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    height: 600px;
+    width: 600px;
+    margin-top: 80px;
+}
+
+.square {
+    border: black solid 2px;
+    height: calc(100% / var(--num-cells-per-row) );
+    width: calc(100% / var(--num-cells-per-row) );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.square81 {
+    border: black solid 2px;
+    height: calc(100% / var(--num-cells-per-row81) );
+    width: calc(100% / var(--num-cells-per-row81) );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.square49 {
+    border: black solid 2px;
+    height: calc(100% / var(--num-cells-per-row49) );
+    width: calc(100% / var(--num-cells-per-row49) );
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight {
+    background-color: blue;
+}
