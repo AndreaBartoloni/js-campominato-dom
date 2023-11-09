@@ -4,8 +4,8 @@
 
 // collegare i 16 numeri casuali a ogni difficolta 
 
-
-
+let numeriCasuali = [];
+let numeriGenerati = [];
 
 
 
@@ -19,6 +19,8 @@ play.addEventListener("click", function(){
     grid.replaceChildren()
 
 
+
+    
     console.log(difficult);
     if(difficult == "medium"){
         numCella = 81;
@@ -35,13 +37,15 @@ play.addEventListener("click", function(){
         console.log("stronzo");
     }
 
-    let numeriCasuali = [];
-
-    for (let i = 1; i <= 16; i++) {
-        let numeroCasuale = Math.floor(Math.random() * numeroCella) + 1;
-        numeriCasuali.push(numeroCasuale);
+    numeriCasuali = [];
+    for (let i = 1; i <= 16;) {
+        let numeroCasuale = Math.floor(Math.random() * numCella);
+        if (!numeriGenerati.includes(numeroCasuale)) {
+            numeriCasuali.push(numeroCasuale);
+            numeriGenerati.push(numeroCasuale);
+            i++; // Incrementa l'indice solo se un numero unico è stato generato
+        }
     }
-
     console.log(numeriCasuali);
 
     creaQuadrati(numCella, square);
@@ -54,13 +58,21 @@ function creaQuadrati(numeroCella, cssSquare){
         let celle = document.createElement("div");
         celle.classList.add(cssSquare);
         celle.innerHTML = i;
+        celle.setAttribute("data-indice", i);
         grid.appendChild(celle); 
 
-        
-    
         celle.addEventListener("click", function(){
-            celle.classList.toggle("highlight");
-            console.log("Numero della casella", i)
+            celle.classList.add("highlight");
+            
+            //console.log("Numero della casella", i);
+            let indice = parseInt(celle.getAttribute("data-indice")); // Leggi l'indice dalla cella cliccata
+            // Confronta l'indice della cella cliccata con l'elemento corrispondente in numeriCasuali
+            if (numeriCasuali.includes(indice)) {
+                celle.classList.add("close");
+                console.log("hai perso")
+            }
+            
+
         });
         
     }  

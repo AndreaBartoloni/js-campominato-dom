@@ -80,3 +80,7 @@ button{
 .highlight {
     background-color: blue;
 }
+
+.close{
+    background-color: red;
+}
