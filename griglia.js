@@ -62,7 +62,7 @@ function creaQuadrati(numeroCella, cssSquare){
         grid.appendChild(celle); 
 
         celle.addEventListener("click", function(){
-            celle.classList.add("highlight");
+            
             
             //console.log("Numero della casella", i);
             let indice = parseInt(celle.getAttribute("data-indice")); // Leggi l'indice dalla cella cliccata
@@ -70,6 +70,8 @@ function creaQuadrati(numeroCella, cssSquare){
             if (numeriCasuali.includes(indice)) {
                 celle.classList.add("close");
                 console.log("hai perso")
+            }else{
+                celle.classList.add("highlight");
             }
             
 
